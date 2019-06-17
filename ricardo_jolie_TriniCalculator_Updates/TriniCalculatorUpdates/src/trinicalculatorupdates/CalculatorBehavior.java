@@ -7,7 +7,7 @@ public class CalculatorBehavior extends CalculatorOperations {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		System.out.println("Hello, please enter a number to calculate");
+		System.out.println("Hello, please enter a number to calculate!");
 		double number1 = 1; //arbitrary value 1
 		double number2 = 0; //arbitrary value 0
 		char arithmaticOp = '%'; // make sure to use something (%) that is not gonna be used in your operations at all ( -,+,*, /)
