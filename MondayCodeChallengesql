@@ -1,0 +1,58 @@
+CREATE TABLE EMPLOYEE
+    (EMPLOYEE_ID INTEGER,
+    EMP_FIRSTNAME VARCHAR2,
+    EMP_LASTNAME VARCHAR,
+    DEPARTMENT_ID INTEGER,
+    SALARY INTEGER,
+    EMP_EMAIL VARCHAR2)
+    
+CREATE TABLE DEPARTMENT
+    (DEPARTMENT_ID INTEGER,
+    DEPARTMENT_NAME VARCHAR2)
+    
+CREATE SEQUENCE EMPLOYEE_ID_SEQUENCE
+    START WITH 1000
+    INCREMENT BY 1
+    NOCACHE
+    NOCYCLE;
+    
+ CREATE SEQUENCE DEPARTMENT_ID_SEQUENCE
+    START WITH 1000
+    INCREMENT BY 1
+    NOCACHE
+    NOCYCLE;
+
+CREATE OR REPLACE TRIGGER TRIGGER_PK_EMPLOYEE BEFORE INSERT ON EMPLOYEE
+    FOR EACH ROW
+    BEGIN
+    SELECT EMPLOYEE_ID_SEQUENCE.NEXTVAL
+    INTO :NEW.ID
+    FROM DUAL
+    END;
+
+CREATE OR REPLACE TRIGGER TRIGGER_PK_DEPARTMENT BEFORE INSERT ON DEPARTMENT --I don't know why we're pink
+    FOR EACH ROW
+    BEGIN
+    SELECT DEPARTMENT_ID_SEQUENCE.NEXTVAL
+    INTO :NEW.ID
+    FROM DUAL
+    END;
+    
+INSERT INTO EMPLOYEES
+(EMPLOYEE_ID, EMP_FIRSTNAME, EMP_LASTNAME, DEPARTMENT_ID, SALARY, EMP_EMAIL ) VALUES
+  (null, 'Mary', 'Sue', 'null', '5000', 'mary_sue@gmail.com'),
+  (null, 'Margarate', 'Thatcher', 'null', '6500', 'm_thatcher@hotmail.com'),
+  (null, 'Edward', 'Singleton', 'null', '68700', 'ed_sing@aol.com'),
+  (null, 'Amelie', 'Amen', 'null', '54999', 'ame_ame@yahoo.com'),
+  (null, 'Jesus', 'Gordon', 'null', '45000', 'je_gor@mail.com'),
+  (null, 'Adam', 'Steve', 'null', '34000', 'ad_st@drive.com'),
+  (null, 'John', 'Apple', 'null', '99999', 'jo_app@msn.com');
+  
+INSERT INTO DEPARTMENT
+(DEPARTMENT_ID, DEPARTMENT_NAME) VALUES
+  (null, 'Magical Formats'),
+  (null, 'Easier Ways'),
+  (null, 'Religious Paranoia'),
+  (null, 'Holy Moly');
+
+  
