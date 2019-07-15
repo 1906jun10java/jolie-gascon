@@ -1,0 +1,20 @@
+p.inset {border-style: inset;}
+
+
+	body {background-color:teal;}
+	
+	p {color: darkmagenta;}
+
+	li {font-size:16pt;}
+
+	p {font-family: courier new;}
+
+	ul li {font-family: Arial;}
+
+	div.column{width: 50%;
+
+		  float: left;}
+
+	backgroundColor {
+        background-color: RosyBrown;
+        color: white;}
